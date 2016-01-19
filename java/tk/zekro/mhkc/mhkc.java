@@ -1,8 +1,11 @@
 package tk.zekro.mhkc;
 
 import com.sun.prism.Material;
+import com.sun.xml.internal.ws.assembler.dev.ServerTubelineAssemblyContext;
 
 import net.minecraft.block.BlockCommandBlock;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,7 +21,7 @@ import tk.zekro.mhkc.proxies.mhkc_proxy;
 import net.minecraftforge.fml.common.SidedProxy;
 
 //=Annotation
-@Mod(modid="mhkc", name="mhkc", version="1.0.1-0047")
+@Mod(modid="mhkc", name="mhkc", version="1.0.1-0056")
 public class mhkc {
 
 	@Instance(value="mhkc")
@@ -30,6 +33,7 @@ public class mhkc {
 	
 	//ITEMS
 	expItem zekroItem;
+	ItemSchnitzel ItemSchnitzel;
 	
 	
 	@SidedProxy(clientSide="tk.zekro.mhkc.proxies.mhkc_clientproxy", serverSide="tk.zekro.mhkc.proxies.mhkc_proxy")
@@ -45,7 +49,7 @@ public class mhkc {
 	public void load(FMLInitializationEvent event) {
 		 proxy.registerRenderers();
 		 
-		 
+		 loadFood();
 		 loadBlocks(); //erst Block laden
 		 loadItems(); //Läd die Items
 		 loadrecepies(); //damit er dann in die Recepies eingeorndet werden kann
@@ -109,6 +113,14 @@ public class mhkc {
 		zekroItem = new expItem("zekroItem");
 		zekroItem.setCreativeTab(CreativeTabs.tabMisc);
 		
+	}
+	
+	private void loadFood() {
+		
+		ItemSchnitzel = (tk.zekro.mhkc.ItemSchnitzel) new ItemSchnitzel(20, 1.0F, false).setUnlocalizedName("Schnitzel");
+		ItemSchnitzel.setCreativeTab(CreativeTabs.tabFood);
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ItemSchnitzel, 0, new ModelResourceLocation("mhkc:zekroItem", "inventory"));
+		GameRegistry.registerItem(ItemSchnitzel, "Schnitzel");
 	}
 	
 }
