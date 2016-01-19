@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mhkc",
+  "name": "FirstModbyZekro Mod",
+  "description": "This is my first mod I have ever scripted. This mod is only a trash mod so please dont think to much about the sense on this mod ;D.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://youtube.com/zekrommaster110",
+  "updateUrl": "",
+  "authorList": ["zekro", "jeb_"],
+  "credits": "©2016 zekro",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
