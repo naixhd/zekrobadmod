@@ -25,14 +25,16 @@ public class mhkc {
 	public static mhkc instance;
 	
 	//BLÖCKE
-	expBlock zekroBlock;
-	expBlock zekro2Block;
+	public expBlock zekroBlock;
+	public expBlock zekro2Block;
 	
 	//ITEMS
 	expItem zekroItem;
 	
+	
 	@SidedProxy(clientSide="tk.zekro.mhkc.proxies.mhkc_clientproxy", serverSide="tk.zekro.mhkc.proxies.mhkc_proxy")
 	public static mhkc_proxy proxy;
+	
 	
 	//Wird vor dem Initialisieren der Mod aufgerufen (Config, Updates usw..)
 	@EventHandler
@@ -47,6 +49,8 @@ public class mhkc {
 		 loadBlocks(); //erst Block laden
 		 loadItems(); //Läd die Items
 		 loadrecepies(); //damit er dann in die Recepies eingeorndet werden kann
+		 
+		 GameRegistry.registerFuelHandler(new expFuelHandler());
 		 
 	}
 	
